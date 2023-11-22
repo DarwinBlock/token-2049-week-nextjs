@@ -1,33 +1,96 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { website_url } from "@/config/constants";
 import parse from 'html-react-parser'
+import EventCard from "./EventCard";
+import CategoryFilter from "./CategoryFilters";
 
 const EventFilters = ({selectedDateFilter}) => {
-    const [filterBtnData, setFilterBtnData] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [paymentFilterData, setPaymentFilterData] = useState(null);
+
+
     const [eventCardData, setEventCardData] = useState(null);
+
     useEffect(() => {
-        axios.post(`${website_url}events/data/?${selectedDateFilter}`).then((res) => {
-            setFilterBtnData(res.data.btn);
-            setEventCardData(res.data.data);
-        })
+      axios.get('/api/events').then((res) => {
+        setEventCardData(res.data.events)
+      })
     }, [selectedDateFilter]);
 
+    const constructedEventCardArr = useMemo(() => {
+      if(eventCardData === null)
+        return [];
+
+      return eventCardData.filter(item => {
+          if(paymentFilterData && item.event_type.toLowerCase() !== paymentFilterData)
+            return false;
+          if(selectedCategory !== 'all' && selectedCategory !== item.event_category.split(" ")[0].toLowerCase())
+            return false;
+          return true;
+        }).map(item => {
+            const date = new Date(item.event_date);
+            const dayOfMonth = date.getDate();
+            const options = { weekday: 'short' };
+            const abbreviatedDayName = new Intl.DateTimeFormat('en-US', options).format(date);
+            function getFormattedTime(timeString) {
+              const timeParts = timeString.split(":");
+              const hours = parseInt(timeParts[0], 10);
+              const minutes = parseInt(timeParts[1], 10);
+    
+              const formattedTime = new Date(0, 0, 0, hours, minutes).toLocaleString('en-US', {
+                hour: 'numeric',
+                minute: 'numeric',
+                hour12: true
+              });
+
+              return formattedTime;
+            }
+            return (
+              <EventCard 
+                key={item.event_id}
+                eventName={item.event_name}
+                day={abbreviatedDayName}
+                date={dayOfMonth}
+                eventCategory={item.event_category}
+                eventType={item.event_type}
+                startTime={getFormattedTime(item.start_time)}
+                endTime={getFormattedTime(item.end_time)}
+                imgStr={item.thumbnail}
+                registerationLink={item.registeration_link}
+              />
+            );
+          })
+    }, [eventCardData, paymentFilterData, selectedCategory]);
+
     return (  
-        <div class="alldata tabcontent" id="Su-n">
-            <div class="fillers">
-              <div class="row">
-                <div class="col-lg-12 filter-btb d-flex">
-                  <div class="ma-in">
+        <div className="alldata tabcontent" id="Su-n">
+            <div className="fillers">
+              <div className="row">
+                <div className="col-lg-12 filter-btb d-flex">
+                  <div className="ma-in">
                     <div id="all-buttons">
-                      <div id="function-buttons"> 
-                        {filterBtnData && parse(filterBtnData)}
+                      <div id="function-buttons">
+                        <CategoryFilter
+                          selectedCategory={selectedCategory}
+                          setSelectedCategory={setSelectedCategory}
+                        />
                       </div>
-                      <div class="mobile">
+                      <div className="mobile">
                         <div id="payment-buttons">
-                          <div class="ptm desk" id="ptm">
-                            <button data-but_id="free-div" class="Free paymentbtn typebtn">Free</button>
-                            <button data-but_id="paid-div" class="Paid paymentbtn typebtn">Paid</button>
+                          <div className="ptm desk" id="ptm">
+                            <button onClick={() => {
+                              if(paymentFilterData !== 'free')
+                                setPaymentFilterData('free');
+                              else
+                                setPaymentFilterData(null);
+                            }} data-but_id="free-div" className={"Free paymentbtn typebtn " + (paymentFilterData === 'free'? "active":"")}>Free</button>
+                            <button onClick={() => {
+                              if(paymentFilterData !== 'paid')
+                                setPaymentFilterData('paid');
+                              else
+                                setPaymentFilterData(null);
+                            }} data-but_id="paid-div" className={"Paid paymentbtn typebtn " + (paymentFilterData === 'paid'? "active":"")}>Paid</button>
                           </div>
                         </div>
                       </div>
@@ -37,8 +100,16 @@ const EventFilters = ({selectedDateFilter}) => {
                 </div>
               </div>
             </div>
-            <div class={"e-divs " + (selectedDateFilter === 'alldates'? "all_div-parent":"")} id="events-div">
-              {eventCardData && parse(eventCardData)}
+            <div className={"e-divs all_div-parent"} id="events-div">
+              {constructedEventCardArr && constructedEventCardArr.length > 0 ? 
+                constructedEventCardArr
+                 : 
+                  <div class="nodata no-events"> 
+                    <div class="col-sm-6 col-6 card-style col-md-2"> 
+                      No Data
+                    </div> 
+                  </div>
+              }
             </div>
         </div>
     );
