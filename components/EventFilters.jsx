@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import { website_url } from "@/config/constants";
-import parse from 'html-react-parser'
 import EventCard from "./EventCard";
 import CategoryFilter from "./CategoryFilters";
 
@@ -23,9 +22,17 @@ const EventFilters = ({selectedDateFilter}) => {
         return [];
 
       return eventCardData.filter(item => {
+          const dateObject = new Date(item.event_date);
+          const year = dateObject.getFullYear();
+          const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+          const day = String(dateObject.getDate()).padStart(2, '0');
+          const formattedEventDate = `${year}-${month}-${day}`;
+
           if(paymentFilterData && item.event_type.toLowerCase() !== paymentFilterData)
             return false;
           if(selectedCategory !== 'all' && selectedCategory !== item.event_category.split(" ")[0].toLowerCase())
+            return false;
+          if(selectedDateFilter !== 'alldates' && selectedDateFilter !== formattedEventDate)
             return false;
           return true;
         }).map(item => {
@@ -61,7 +68,7 @@ const EventFilters = ({selectedDateFilter}) => {
               />
             );
           })
-    }, [eventCardData, paymentFilterData, selectedCategory]);
+    }, [eventCardData, paymentFilterData, selectedCategory, selectedDateFilter]);
 
     return (  
         <div className="alldata tabcontent" id="Su-n">

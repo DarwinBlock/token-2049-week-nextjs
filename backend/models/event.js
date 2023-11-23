@@ -1,11 +1,11 @@
 import mysql from "mysql2";
 
 const connection = mysql.createConnection({
-    host     : 'mysql-token-week-do-user-4462607-0.c.db.ondigitalocean.com',
+    host     : process.env.DB_HOST,
     port: 25060,
-    user     : 'doadmin',
-    password : 'AVNS_gJRf_fT6gI9uLpr1kkC',
-    database : 'defaultdb'
+    user     : process.env.DB_USER,
+    password : process.env.DB_PASSWORD,
+    database : process.env.DB_DATABASE
 });
 
 export const connectDB = () => {
