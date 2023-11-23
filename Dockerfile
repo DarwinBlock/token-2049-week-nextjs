@@ -3,6 +3,7 @@ FROM node:alpine as base
 RUN node -v
 WORKDIR /app
 COPY package*.json ./
+RUN npm ci
 EXPOSE 3000
 
 FROM base as builder
@@ -14,11 +15,7 @@ FROM base as production
 WORKDIR /app
 
 ENV NODE_ENV=production
-ENV DB_HOST=mysql-token-week-do-user-4462607-0.c.db.ondigitalocean.com
-ENV DB_USER=doadmin
-ENV DB_PASSWORD=AVNS_gJRf_fT6gI9uLpr1kkC
-ENV DB_DATABASE=defaultdb
-RUN npm ci
+# RUN npm ci
 
 # RUN addgroup -g 1001 -S nodejs
 # RUN adduser -S nextjs -u 1001
