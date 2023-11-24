@@ -9,11 +9,10 @@ export default async function getEvents(){
         const query = `SELECT * FROM Events`
         const results = await queryDB(query);
         //Terminate DB connection
-        // if(results)
-        //     disconnectDB();
+        await disconnectDB();
         return results;
     }catch(e){
-        throw new Error("Error in querying",e);
+        throw new Error("Oops! Error in querying",e);
     }
 }
 

@@ -11,8 +11,10 @@ const connection = mysql.createConnection({
 export const connectDB = () => {
     return new Promise((resolve, reject) => {
         connection.connect((err) => {
-            if (err) 
+            if (err) {
+                console.log("IN CONNECT DB",err.message, err.name, err);
                 reject(err.message);
+            }
             else
                 resolve();
         });
@@ -22,13 +24,24 @@ export const connectDB = () => {
 export const queryDB = (queryStr) => {
     return new Promise((resolve, reject) => {
         connection.query(queryStr, (err, res) => {
-            if (err) 
-                reject(err);
+            if (err) {
+                console.log("IN QUERY DB",err.message, err.name, err);
+                reject(err.message);
+            }
             resolve(res);
         })
     })
 }
 
 export const disconnectDB = () => {
-    connection.end();
+    return new Promise((resolve, reject) => {
+        connection.end((err) => {
+            if (err) {
+                console.log("IN DISCONNECT DB",err.message, err.name, err);
+                reject(err.message);
+            }
+            else
+                resolve();
+        });
+    })
 }
