@@ -2,14 +2,10 @@ import { connectDB, disconnectDB, queryDB } from "../models/event";
 
 export default async function getEvents(){
     try{
-        //Connect to MySql
         await connectDB();
-        //Query db for required results
         //SELECT * FROM Events WHERE verified = True
         const query = `SELECT * FROM Events`
         const results = await queryDB(query);
-        //Terminate DB connection
-        await disconnectDB();
         return results;
     }catch(e){
         throw new Error("Oops! Error in querying",e);

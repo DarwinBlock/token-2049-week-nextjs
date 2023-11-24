@@ -24,11 +24,13 @@ export const connectDB = () => {
 export const queryDB = (queryStr) => {
     return new Promise((resolve, reject) => {
         connection.query(queryStr, (err, res) => {
-            if (err) {
-                console.log("IN QUERY DB",err.message, err.name, err);
-                reject(err.message);
-            }
-            resolve(res);
+            connection.end((endErr) => {
+                if (endErr) 
+                    reject("WHILE CLOSING CONNECTION--> ",endErr.message);
+                if (err) 
+                    reject("WHILE QUERYING DB--> ",err.message);
+                resolve(res);
+            });
         })
     })
 }
