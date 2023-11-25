@@ -13,7 +13,7 @@ export const connectDB = (connection) => {
     })
 }
 
-export const queryDB = async (queryStr) => {
+export const queryDB = async (queryStr, insertionData=null) => {
     const connection = mysql.createConnection({
         host     : process.env.DB_HOST,
         port: 25060,
@@ -25,7 +25,7 @@ export const queryDB = async (queryStr) => {
     await connectDB(connection);
 
     return new Promise((resolve, reject) => {
-        connection.query(queryStr, (err, res) => {
+        connection.query(queryStr, insertionData, (err, res) => {
             connection.end((endErr) => {
                 if (endErr) {
                     console.log("IN END DB",endErr.message, endErr.name, endErr);

@@ -60,7 +60,7 @@ const EventFilters = ({selectedDateFilter}) => {
                 day={abbreviatedDayName}
                 date={dayOfMonth}
                 eventCategory={item.event_category}
-                eventType={item.event_type}
+                eventType={item.price??"Free"}
                 startTime={getFormattedTime(item.start_time)}
                 endTime={getFormattedTime(item.end_time)}
                 imgStr={item.thumbnail}
