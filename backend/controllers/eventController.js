@@ -1,9 +1,11 @@
 import { queryDB } from "../models/event";
 import { formToDBMap } from "@/config/constants";
 
-export default async function getEvents(){
+export default async function getEvents(getAllEvents=false){
     try {
-        const query = `SELECT * FROM Events WHERE verified=1`
+        let query = `SELECT * FROM Events WHERE verified=1`;
+        if(getAllEvents)
+            query = `SELECT * FROM Events`;
         const results = await queryDB(query);
         return results;
     }catch(e) {
@@ -46,5 +48,34 @@ export async function createEvent(formFields){
     }
     catch(e){
         throw new Error("Error in querying",e);
+    }
+}
+
+export async function changeVerificationStatus(eventId, verify=false){
+    try{
+        const query = `UPDATE Events SET verified=${verify === "true"? 1:0} WHERE event_id=${eventId}`;
+        await queryDB(query);
+        return true;
+    }catch(e) {
+        throw new Error("Oops! Error in querying",e);
+    }
+}
+
+export async function deleteEvent(eventId){
+    try{
+        const query = `DELETE FROM Events WHERE event_id=${eventId}`;
+        await queryDB(query);
+        return true;
+    }catch(e) {
+        throw new Error("Oops! Error in querying",e);
+    }
+}
+
+export async function updateEvent(data){
+    try{
+        
+    }
+    catch (e){
+        throw new Error("Oops! Error in querying",e);
     }
 }

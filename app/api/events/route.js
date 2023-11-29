@@ -1,9 +1,11 @@
-import getEvents, { createEvent } from "@/backend/controllers/eventController";
+import getEvents, { createEvent, changeVerificationStatus, deleteEvent } from "@/backend/controllers/eventController";
 import { NextResponse } from "next/server";
 
-export async function GET(){
+export async function GET(request){
     try{
-        const data = await getEvents();
+        const { searchParams } = new URL(request.url);
+        const getAllEvents = searchParams.get('allEvents');
+        const data = await getEvents(getAllEvents);
         return NextResponse.json({
             events: data,
         })
@@ -19,4 +21,40 @@ export async function POST(request){
     
     await createEvent(formFields);
     return NextResponse.json({ message: "Event Created Successfully" }, { status: 200 })
+}
+
+export async function PATCH(request) {
+    try{
+        const { searchParams } = new URL(request.url);
+        const eventId = searchParams.get('eventId');
+        //true marks the event verified else marks it unverified
+        const verify = searchParams.get('verify');
+        await changeVerificationStatus(eventId, verify);
+        return NextResponse.json({ message: "Event Updated Successfully" }, { status: 200 })
+    }
+    catch(e){
+        return NextResponse.json({ message: e }, { status: 400 });
+    }
+}
+
+export async function DELETE(request){
+    try{
+        const { searchParams } = new URL(request.url);
+        const eventId = searchParams.get('eventId');
+        await deleteEvent(eventId);
+        return NextResponse.json({ message: "Event Deleted Successfully" }, { status: 200 })
+    }
+    catch(e){
+        return NextResponse.json({ message: e }, { status: 400 });
+    }
+}
+
+export async function PUT(request) {
+    try{
+        const formDataJSON = await request.json();
+        await updateEvent(formDataJSON);
+        return NextResponse.json({ message: "Event Edited Successfully" }, { status: 200 })
+    } catch(e) {
+        return NextResponse.json({ message: e }, { status: 400 });
+    }
 }
