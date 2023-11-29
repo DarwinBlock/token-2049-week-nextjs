@@ -10,6 +10,7 @@ import UnverifyToolConfirmModal from "./Modals/UnverifyToolConfirmModal";
 import verified_tick from "/public/verified_tick.svg";
 import axios from "axios";
 import ModeratorTable from "./ModeratorTable";
+
 export default function EventModerator() {
     const [events, setEventCardData] = useState(null);
 
@@ -32,7 +33,6 @@ export default function EventModerator() {
 	const [toolToUnverify, setToolToUnverify] = useState("");
 
     
-    console.log(events);
 	const headingMaping = {
 		all: "All Events",
 		unverified: "Unverified Events",
@@ -40,15 +40,11 @@ export default function EventModerator() {
 	}
 
 	const editHandler = (event) => {
-		e.preventDefault();
-		console.log("Edit handler working");
-		// router.push(`/admin/tools/edit/${tool._id}`);
+		router.push(`/admin/edit/event/${event.event_id}`);
 	}
 
 	const changeVerificationHandler = (event) => {
-		console.log(event.verified);
 		if(event.verified === 1){
-			console.log("inside");
 			setToolToUnverify(event);
 			setUnverifyToolModalOpen(true);
 		}

@@ -1,11 +1,12 @@
-import getEvents, { createEvent, changeVerificationStatus, deleteEvent } from "@/backend/controllers/eventController";
+import getEvents, { createEvent, changeVerificationStatus, deleteEvent, updateEvent } from "@/backend/controllers/eventController";
 import { NextResponse } from "next/server";
 
 export async function GET(request){
     try{
         const { searchParams } = new URL(request.url);
         const getAllEvents = searchParams.get('allEvents');
-        const data = await getEvents(getAllEvents);
+        const eventId = searchParams.get('eventId');
+        const data = await getEvents(getAllEvents, eventId);
         return NextResponse.json({
             events: data,
         })
@@ -52,7 +53,7 @@ export async function DELETE(request){
 export async function PUT(request) {
     try{
         const formDataJSON = await request.json();
-        await updateEvent(formDataJSON);
+        await updateEvent(formDataJSON.data);
         return NextResponse.json({ message: "Event Edited Successfully" }, { status: 200 })
     } catch(e) {
         return NextResponse.json({ message: e }, { status: 400 });

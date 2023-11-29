@@ -15,7 +15,6 @@ const ModeratorTable = ({
         return formattedDateVal;
     }
     
-    console.log(events);
 
     return ( 
         <table className="w-full table table-auto text-gray-400 border-separate space-y-6 text-sm">
