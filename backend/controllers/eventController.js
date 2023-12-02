@@ -3,7 +3,7 @@ import { formToDBMap } from "@/config/constants";
 
 export default async function getEvents(getAllEvents=false, eventId=null){
     try {
-        let query = `SELECT * FROM Events WHERE verified=1`;
+        let query = `SELECT * FROM Events WHERE verified=1 ORDER BY featured_event DESC`;
         if(getAllEvents)
             query = `SELECT * FROM Events`;
         else if(eventId)
@@ -80,6 +80,18 @@ export async function updateEvent(data){
         return true;
     }
     catch (e){
+        throw new Error("Oops! Error in querying",e);
+    }
+}
+
+export async function checkIfClashingFeature(eventDate){
+    try{
+        const query = "SELECT COUNT(*) AS eventCount FROM Events WHERE featured_event=1 AND event_date='"+eventDate+"' GROUP BY event_date;";
+        const res = await queryDB(query);
+        return res.length > 0;
+    }
+    catch (e)
+    {
         throw new Error("Oops! Error in querying",e);
     }
 }

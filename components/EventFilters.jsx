@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
-import { website_url } from "@/config/constants";
 import EventCard from "./EventCard";
 import CategoryFilter from "./CategoryFilters";
 
@@ -65,6 +64,7 @@ const EventFilters = ({selectedDateFilter}) => {
                 endTime={getFormattedTime(item.end_time)}
                 imgStr={item.thumbnail}
                 registerationLink={item.registeration_link}
+                isFeatured={item.featured_event === 1}
               />
             );
           })
