@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import Dropdown from "./Dropdown";
 
 const EditForm = ({defaultData}) => {
     const [editFields, setEditFields] = useState(null);
@@ -28,7 +29,7 @@ const EditForm = ({defaultData}) => {
     const constructedArray = [];
 
     const handleChangesSubmission = () => {
-        axios.put(`/api/events`, {data: editFields}).then((res) => router.push('/admin'));
+        axios.put(`/api/events`, {data: editFields}).then((res) => router.push('/admin')).catch(e => {alert(e.response.data.message);});
     }
 
     function formatDate(dateStr) {
@@ -45,10 +46,24 @@ const EditForm = ({defaultData}) => {
     }
 
     for(let field in editFields){
-        // if(field===' event_date'){
+        if(field === 'verified' || field === 'featured_event'){
+            const defVal = editFields[field] === 1;
 
-        // }
-        // else{
+            constructedArray.push(
+                <div key={`${field}`} className="flex flex-col font-primary">
+                    <p className="font-semibold text-sm text-dark-400 capitalize">{field.replace(/_/g, ' ')}</p>
+                    <Dropdown
+                        variant="secondary"
+                        id={field}
+                        name={field}
+                        options={[String(defVal), String(!defVal)]}
+                        setChoice={(e) => {setEditFields(prev => ({...prev, [field]:e.target.value === 'true'? 1:0}))}}
+                        classes={"w-full"}
+                    />
+                </div>
+            );
+        }
+        else{
             constructedArray.push(
                 <div key={`${field}`} className="flex flex-col font-primary">
                     <p className="font-semibold text-sm text-dark-400 capitalize">{field.replace(/_/g, ' ')}</p>
@@ -66,7 +81,7 @@ const EditForm = ({defaultData}) => {
                     />
                 </div>
             );
-        // }
+        }
     }
 
     return (  
