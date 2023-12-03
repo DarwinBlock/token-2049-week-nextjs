@@ -1,7 +1,5 @@
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
-import Head from "next/head";
 
 export const metadata = {
 	title: "TOKEN2049 Week",

@@ -31,20 +31,16 @@ const EventsDate = ({selectedDate, setSelectedDate}) => {
     const genDates = generateDateRange();
 
     return (  
-        // <div className="t-events">
-        //     <div className="container c-hack">
-                <div className="slider-container dxtop">
-                    <div className="slider-header">
-                        <div className="tab">
-                            <button onClick={() => setSelectedDate("alldates")} className={"tablinks " + (selectedDate === "alldates"? "active":"")} data-but_id="alldates">All Dates</button>
-                            {genDates.map(item => {
-                                return <button onClick={() => {setSelectedDate(item.key)}} key={`${item.key}`} className={"tablinks " + (selectedDate === item.key? "active":"")} data-but_id={item.key}>{item.val}</button>
-                            })}
-                        </div>
-                    </div>
+        <div className="slider-container">
+            <div className="slider-header">
+                <div className="tab">
+                    <button onClick={() => setSelectedDate("alldates")} className={"tablinks " + (selectedDate === "alldates"? "active":"")} data-but_id="alldates">All Dates</button>
+                    {genDates.map(item => {
+                        return <button onClick={() => {setSelectedDate(item.key)}} key={`${item.key}`} className={"tablinks " + (selectedDate === item.key? "active":"")} data-but_id={item.key}>{item.val}</button>
+                    })}
                 </div>
-        //     </div>
-        // </div>
+            </div>
+        </div>
     );
 }
  
