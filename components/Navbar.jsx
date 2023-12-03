@@ -1,12 +1,27 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
 	const router = useRouter();
 	const pathname = usePathname();
-	const [collapsed, setCollapsed] = useState(window.innerWidth < 769 || pathname === "/admin");
+	const [collapsed, setCollapsed] = useState(pathname === "/admin");
+
+	useEffect(() => {
+		setCollapsed(window.innerWidth < 769 || pathname === "/admin");
+		window?.addEventListener('resize', (e) => {
+			if(pathname === "/admin"){
+				setCollapsed(true)
+				return;
+			}
+			const windowWidth = window?.innerWidth;
+			if(windowWidth < 769)
+				setCollapsed(true);
+			else
+				setCollapsed(false);
+		})
+	}, [pathname])
 
 	const handleLogout = async () => {
 		const response = await fetch("/api/auth/logout", {
@@ -27,17 +42,17 @@ const Navbar = () => {
 		}
 	};
 
-	window.addEventListener('resize', (e) => {
-		if(pathname === "/admin"){
-			setCollapsed(true)
-			return;
-		}
-		const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-		if(windowWidth < 769)
-			setCollapsed(true);
-		else
-			setCollapsed(false);
-	})
+	// window?.addEventListener('resize', (e) => {
+	// 	if(pathname === "/admin"){
+	// 		setCollapsed(true)
+	// 		return;
+	// 	}
+	// 	const windowWidth = window?.innerWidth;
+	// 	if(windowWidth < 769)
+	// 		setCollapsed(true);
+	// 	else
+	// 		setCollapsed(false);
+	// })
 
 	return (
 		<header class="header navbar-expand-lg" tw="exclude">
