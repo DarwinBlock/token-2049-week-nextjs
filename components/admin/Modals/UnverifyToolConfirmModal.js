@@ -5,12 +5,12 @@ import { useRouter } from "next/router";
 import axios from "axios";
 const UnverifyToolConfirmModal = ({ isOpen, setOpen, toolToUnverify }) => {
 	const verifyToolHandler = async () => {
-		await axios.patch(`/api/events?eventId=${toolToUnverify.event_id}&verify=false`)
+		await axios.patch(`/api/events?eventId=${toolToUnverify.event_id}&verify=false`);
 		setOpen(false);
 		location.reload();
 	};
 
-	return  (
+	return (
 		<Modal
 			isOpen={isOpen}
 			image={
@@ -18,7 +18,7 @@ const UnverifyToolConfirmModal = ({ isOpen, setOpen, toolToUnverify }) => {
 					<i className="fa-solid fa-trash"></i>
 				</div>
 			}
-			title={"Unverify Tool"}
+			title={"Unverify Event"}
 			content={
 				<div>
 					<form

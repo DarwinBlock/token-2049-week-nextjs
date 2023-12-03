@@ -8,7 +8,7 @@ const DeleteToolConfirmModal = ({ isOpen, setOpen, toolToDelete }) => {
 		location.reload();
 	};
 
-	return  (
+	return (
 		<Modal
 			isOpen={isOpen}
 			image={
@@ -16,7 +16,7 @@ const DeleteToolConfirmModal = ({ isOpen, setOpen, toolToDelete }) => {
 					<i className="fa-solid fa-trash"></i>
 				</div>
 			}
-			title={"Delete Tool"}
+			title={"Delete Event"}
 			content={
 				<div>
 					<form
