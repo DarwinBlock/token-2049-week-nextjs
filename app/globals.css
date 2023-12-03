@@ -2222,7 +2222,7 @@ header.header .main .navbar-toggler {
 		margin: 0;
 	}
 	div.slider-header .tab {
-		display: block;
+		/* display: block; */
 		max-width: 90%;
 		margin: 0 auto;
 		width: 100%;
