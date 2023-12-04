@@ -40,12 +40,20 @@ const EventCard = ({
 							</h4>
 						</div>
 					</div>
-
-					<div className="col-md-3">
-						<a target="blank" href={registrationLink}>
-							<button>Register</button>
-						</a>
-					</div>
+                    {
+                        (registrationLink && registrationLink.length > 0)?
+                        <div className="col-md-3">
+                            <a target="blank" href={registrationLink}>
+                                <button>Register</button>
+                            </a>
+                        </div>
+                        :
+                        <div className="col-md-3">
+                            <a href="#">
+                                <button>Coming Soon</button>
+                            </a>
+                        </div>
+                    }
 				</div>
 			</div>
 		</div>
