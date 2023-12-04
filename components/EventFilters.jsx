@@ -60,7 +60,7 @@ const EventFilters = ({ selectedDateFilter }) => {
 						startTime={getFormattedTime(item.start_time)}
 						endTime={getFormattedTime(item.end_time)}
 						imgStr={item.thumbnail}
-						registerationLink={item.registeration_link}
+						registrationLink={item.registration_link}
 						isFeatured={item.featured_event === 1}
 					/>
 				);
