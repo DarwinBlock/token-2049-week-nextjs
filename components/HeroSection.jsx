@@ -7,7 +7,7 @@ const HeroSection = () => {
                     <div className="inner-text">
                         <img src={'/TOKEN2049-Week-Logo.png'} className="desktop" alt="Banner"/>
                         <img src={'/TOKEN2049-Week-Logo-Stacked.png'} className="mobile" />
-                        <p>11 - 17 September 2023 <span className="dxtop">| SINGAPORE</span> </p>
+                        <p>15 - 21 APRIL 2024 <span className="dxtop">| DUBAI</span> </p>
                         <div className="own-event">
 
                             <p className="Drinks">

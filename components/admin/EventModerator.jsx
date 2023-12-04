@@ -10,6 +10,7 @@ import UnverifyToolConfirmModal from "./Modals/UnverifyToolConfirmModal";
 import verified_tick from "/public/verified_tick.svg";
 import axios from "axios";
 import ModeratorTable from "./ModeratorTable";
+import { current_date, last_date } from "@/config/constants";
 
 export default function EventModerator() {
     const [events, setEventCardData] = useState(null);
@@ -49,9 +50,25 @@ export default function EventModerator() {
 			setUnverifyToolModalOpen(true);
 		}
 		else{
+			if(!isDateInInterval(event.event_date)){
+				alert("This event is out of the scope of TOKEN2049 Week");
+				return;
+			}
 			setToolToVerify(event);
 			setVerifyToolModalOpen(true)
 		}
+	}
+
+	function isDateInInterval(dateString) {
+		// Parse the input date string
+		const inputDate = new Date(dateString);
+	  
+		// Define the start and end dates of the interval
+		const intervalStartDate = new Date(current_date);
+		const intervalEndDate = new Date(last_date);
+	  
+		// Check if the input date is within the interval
+		return inputDate >= intervalStartDate && inputDate <= intervalEndDate;
 	}
 
 	const deleteHandler = (tool) => {

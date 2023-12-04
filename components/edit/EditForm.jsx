@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Dropdown from "./Dropdown";
+import { current_date, last_date } from "@/config/constants";
+
 
 const EditForm = ({defaultData}) => {
     const [editFields, setEditFields] = useState(null);
@@ -45,6 +47,18 @@ const EditForm = ({defaultData}) => {
         return value < 10 ? `0${value}` : value;
     }
 
+    function isDateInInterval(dateString) {
+		// Parse the input date string
+		const inputDate = new Date(dateString);
+	  
+		// Define the start and end dates of the interval
+		const intervalStartDate = new Date(current_date);
+		const intervalEndDate = new Date(last_date);
+	  
+		// Check if the input date is within the interval
+		return inputDate >= intervalStartDate && inputDate <= intervalEndDate;
+	}
+
     for(let field in editFields){
         if(field === 'verified' || field === 'featured_event'){
             const defVal = editFields[field] === 1;
@@ -57,7 +71,16 @@ const EditForm = ({defaultData}) => {
                         id={field}
                         name={field}
                         options={[String(defVal), String(!defVal)]}
-                        setChoice={(e) => {setEditFields(prev => ({...prev, [field]:e.target.value === 'true'? 1:0}))}}
+                        setChoice={(e) => {
+                            // if(field === 'verified'){
+                                if(!isDateInInterval(editFields.event_date)){
+                                    alert("This event is out of the scope of TOKEN2049 Week");
+                                    e.target.value = "false";
+                                    return;
+                                }
+                            // }
+                            setEditFields(prev => ({...prev, [field]:e.target.value === 'true'? 1:0}))
+                        }}
                         classes={"w-full"}
                     />
                 </div>
