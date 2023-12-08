@@ -27,12 +27,12 @@ const CategoryFilter = ({selectedCategory, setSelectedCategory}) => {
                 onClick={setSelectedCategory}
                 category='conference'
             />
-            <CategoryFilterButton
+            {/* <CategoryFilterButton
                 buttonLabel={'Gaming'}
                 isActive={selectedCategory === 'gaming'}
                 onClick={setSelectedCategory}
                 category='gaming'
-            />
+            /> */}
             <CategoryFilterButton
                 buttonLabel={'Networking'}
                 isActive={selectedCategory === 'networking'}

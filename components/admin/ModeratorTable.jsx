@@ -37,9 +37,13 @@ const ModeratorTable = ({ headingsArr, events, editHandler, deleteHandler, chang
 							<td className="p-3">{constructFormattedDate(event.event_date)}</td>
 							<td className="p-3">{`${event.start_time} to ${event.end_time}`}</td>
 							<td className="p-3">
-								<a href={event.registration_link} target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-primary-500">
-									{event.registration_link.length > 30 ? event.registration_link.slice(0, 30) + "..." : event.registration_link}
-								</a>
+                                {event.registration_link && event.registration_link.length > 0?
+                                    <a href={event.registration_link} target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-primary-500">
+                                        {event.registration_link.length > 30 ? event.registration_link.slice(0, 30) + "..." : event.registration_link}
+                                    </a>
+                                    :
+                                    "-"
+                                }
 							</td>
 							<td className="p-3">{event.event_category}</td>
 							<td className="p-3">{event.event_type}</td>
