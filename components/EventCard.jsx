@@ -1,3 +1,5 @@
+import Tooltip from "./ui/Tooltip";
+
 const EventCard = ({
 	day = "Mon",
 	date = 12,
@@ -11,10 +13,18 @@ const EventCard = ({
 	isFeatured,
 }) => {
 	return (
-		<div className={isFeatured ? "p-1 rounded-lg flex flex-col bg-primary-500" : ""}>
-			{isFeatured && <p className="font-semibold my-2 ml-5 font-primary text-white">Featured Event</p>}
+		<div className={isFeatured ? "p-1 featured-card-content-wrapper rounded-lg flex flex-col bg-primary-500" : ""}>
+			{isFeatured && 
+				<div className="my-2 px-4 flex w-full justify-between items-center">
+					<p className="font-semibold m-0 font-primary text-white">Featured Event</p>
+					<Tooltip
+						labelText={<i className="text-white text-lg fa-solid fa-circle-info"></i>}
+						message={"This is a featured event. Contact us to get your event featured"}
+					/>
+				</div>
+			}
 			<div className="eventsWrappers workshop-btn free-div">
-				<div className={"col-sm-6 col-6 card-style col-md-2 " + (isFeatured ? "rounded" : "")}>
+				<div className={"col-sm-6 col-6 card-style col-md-2 " + (isFeatured ? "featured-card-content-div" : "")}>
 					<div className="col-md-3 ">
 						<div className="onlydates  only-dates-show">
 							<div className="week">{day}</div>
@@ -48,7 +58,7 @@ const EventCard = ({
                             </a>
                         </div>
                         :
-                        <div className="col-md-3">
+                        <div className="col-md-3 pointer-events-none">
                             <a href="#">
                                 <button>Coming Soon</button>
                             </a>
