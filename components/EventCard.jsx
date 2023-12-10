@@ -13,13 +13,13 @@ const EventCard = ({
 	isFeatured,
 }) => {
 	return (
-		<div className={isFeatured ? "p-1 featured-card-content-wrapper rounded-lg flex flex-col bg-primary-500" : ""}>
+		<div className={isFeatured ? "p-1 featured-card-content-wrapper rounded-lg flex flex-col bg-[#410BB9]" : ""}>
 			{isFeatured && 
 				<div className="my-2 px-4 flex w-full justify-between items-center">
-					<p className="font-semibold m-0 font-primary text-white">Featured Event</p>
+					<p className="font-semibold m-0 font-primary text-white uppercase">Featured Event</p>
 					<Tooltip
 						labelText={<i className="text-white text-lg fa-solid fa-circle-info"></i>}
-						message={"This is a featured event. Contact us to get your event featured"}
+						message={"This is a TOKEN2049 Week featured event. Email us at community@token2049 to upgrade your side event to featured event."}
 					/>
 				</div>
 			}

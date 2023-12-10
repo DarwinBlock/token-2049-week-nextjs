@@ -4559,11 +4559,11 @@ button.tooltip-button:active {
 	border-radius: 8px;
 	font-size: 13px;
 	font-weight: 400;
-	font-family: "Roboto", "sans-serif";
+	font-family: "Inter", "sans-serif";
 	text-align: center;
 	white-space: pre-wrap;
 	transform: translate(-50%, -5px) scale(0.5);
-	@apply text-white capitalize bg-primary-600;
+	@apply text-white bg-[#5210e0];
 }
 
 .sample_based_tooltip > [data-tooltip]:before {
@@ -4696,4 +4696,8 @@ button.tooltip-button:active {
 
 .featured-card-content-wrapper{
 	border-radius: 1.75rem !important;
+}
+
+.side-event-active-link{
+	color: #be1e97 !important;
 }
