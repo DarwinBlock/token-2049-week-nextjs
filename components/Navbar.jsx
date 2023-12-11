@@ -92,12 +92,12 @@ const Navbar = () => {
                   </div>
               </li> --> */}
               <li className="nav-item">
-                <a href="https://www.dubai.token2049.com/partners" className="nav-link">PARTNERS</a>
+                <a href="https://www.dubai.token2049.com/partners" className="nav-link -ml-2">PARTNERS</a>
               </li>
               <li className="nav-item">
                 <a href="https://www.dubai.token2049.com/travel" className="nav-link">TRAVEL</a>
               </li>
-              <li className="nav-item -ml-5">
+              <li className="nav-item -ml-[26px]">
                 <a href="/" className="nav-link side-event-active-link">SIDE EVENTS</a>
               </li>
                <li className="nav-item">
