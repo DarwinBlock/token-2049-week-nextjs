@@ -86,6 +86,27 @@ const EditForm = ({defaultData}) => {
                 </div>
             );
         }
+        else if(field === 'thumbnail'){
+            constructedArray.push(
+                <div key={`${field}`} className="flex flex-col font-primary">
+                    <p className="font-semibold text-sm text-dark-400 capitalize">{field.replace(/_/g, ' ')}</p>
+                    <input 
+                        type="text" 
+                        value={field==='event_date'? formatDate(editFields[field]):editFields[field]}
+                        className={
+                            "w-full text-dark-300 outline-none bg-light-200/70 focus:ring-primary-500 focus:border-primary-500 border border-gray-300 text-sm rounded-md cursor-text form-input block transition duration-300 py-[0.5rem] px-[0.75rem] " + 
+                            (field === 'event_id'? 'cursor-not-allowed opacity-[75%]':'')
+                        }
+                        onChange={(e) => {
+                            setEditFields(prev => ({...prev, [field]:e.target.value}))
+                        }}
+                        readOnly={field === 'event_id'}
+                    />
+                    <p className="font-medium mt-3 text-xs text-dark-400 capitalize">Preview</p>
+                    <img key={`${editFields[field]}`} src={editFields[field]} width={128} alt="thumbnail"/>
+                </div>
+            );
+        }
         else{
             constructedArray.push(
                 <div key={`${field}`} className="flex flex-col font-primary">
