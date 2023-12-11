@@ -4388,13 +4388,13 @@ header.header .header-right ul li.age-nda div.agenda_new1 span::before {
 	background: transparent;
 	color: #fff;
 	border-color: #ffffff;
-	cursor: default;
+	/* cursor: default; */
 }
 
 .own-event button.hst-own:hover {
 	background: transparent;
 	border: solid 1px #fff;
-	cursor: default;
+	/* cursor: default; */
 }
 
 /**************************************************************************/
