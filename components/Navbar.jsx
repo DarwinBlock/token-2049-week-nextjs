@@ -65,7 +65,7 @@ const Navbar = () => {
       <div className="container-lg">
         <div className="menu_dv">
           <div className="header-left">
-            <a href="https://www.dubai.token2049.com">
+            <a  href="https://www.dubai.token2049.com">
               <img src='/Token-logo.png' alt="Token2049" />
             </a>
           </div>
@@ -73,7 +73,7 @@ const Navbar = () => {
           <button onClick={() => setCollapsed(prev => !prev)} className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon">
               {collapsed ? <i className="fa fa-bars" aria-hidden="true"><img src='/menu-bar.png'/></i>:
-              <img width={24} src='/close-new.png' />}
+              <img className="w-[20px] h-[20px]" width={20} src='/close-icon.svg' />}
             </span>
           </button>
 
@@ -92,12 +92,12 @@ const Navbar = () => {
                   </div>
               </li> --> */}
               <li className="nav-item">
-                <a href="https://www.dubai.token2049.com/partners" className="nav-link -ml-2">PARTNERS</a>
+                <a href="https://www.dubai.token2049.com/partners" className="nav-link md:-ml-2">PARTNERS</a>
               </li>
               <li className="nav-item">
                 <a href="https://www.dubai.token2049.com/travel" className="nav-link">TRAVEL</a>
               </li>
-              <li className="nav-item -ml-[26px]">
+              <li className="nav-item md:-ml-[26px]">
                 <a href="/" className="nav-link side-event-active-link">SIDE EVENTS</a>
               </li>
                <li className="nav-item">

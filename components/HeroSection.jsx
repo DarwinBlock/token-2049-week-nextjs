@@ -21,13 +21,13 @@ const HeroSection = () => {
                             by using <b>#TOKEN2049Week</b> on Twitter.
                             </p>
                             <div className="own-evnt-btn d-flex">
+                            <a href="https://forms.token2049.com/token2049-week-event-submission" target="_blank">
+                                <button className="side-evnt">SUBMIT YOUR EVENT</button>
+                            </a>
                             <a className="cursor-pointer" href="https://docs.google.com/spreadsheets/d/1_mUbQe7AjxHMdXzb2rySYgb5YPA2-o8dZN1nAHCICto/edit#gid=0"
                                 target="__blank">
-                                <button className="hst-own cursor-pointer">SIDE EVENTS SHEET</button></a>
-                                <a href="https://forms.token2049.com/token2049-week-event-submission" target="_blank">
-                                <button className="side-evnt">SUBMIT YOUR EVENT</button>
-
-                                </a>
+                                <button className="hst-own cursor-pointer">SIDE EVENTS SHEET</button>
+                            </a>
                             </div>
                         </div>
                     </div>

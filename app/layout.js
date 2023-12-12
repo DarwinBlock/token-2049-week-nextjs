@@ -2,7 +2,7 @@ import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 
 export const metadata = {
-	title: "TOKEN2049 Week",
+	title: "TOKEN2049 | 15-21 April 2024 | Dubai",
 	description:
 		"TOKEN2049 is the premier crypto event in Asia. Join us to explore cryptoassets and blockchain-based tokens as they reshape the global economy.",
 };
