@@ -2348,6 +2348,7 @@ header.header .main .navbar-toggler {
 		width: 90%;
 		margin-left: 2px;
 		padding-left: 0;
+		margin-top: 6px;
 	}
 	header.header .main a img {
 		width: 40%;
@@ -2355,7 +2356,7 @@ header.header .main .navbar-toggler {
 		max-width: initial !important;
 	}
 	header .t-global {
-		height: 23px;
+		height: 24.4px;
 		justify-content: center;
 		align-items: center;
 		display: flex;
