@@ -72,8 +72,8 @@ const Navbar = () => {
 
           <button onClick={() => setCollapsed(prev => !prev)} className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon">
-              {collapsed ? <i className="fa fa-bars" aria-hidden="true"><img src='/menu-bar.png'/></i>:
-              <img className="w-[20px] h-[20px]" width={20} src='/close-icon.svg' />}
+              {collapsed ? <i className="fa fa-bars" aria-hidden="true"><img className="burger-button" src='/menu-bar.png'/></i>:
+              <img className="close-burger-btn w-[20px] h-[20px]" width={20} src='/close-icon.svg' />}
             </span>
           </button>
 
