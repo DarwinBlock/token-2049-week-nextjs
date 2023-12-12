@@ -2349,6 +2349,7 @@ header.header .main .navbar-toggler {
 		margin-left: 2px;
 		padding-left: 0;
 		margin-top: 6px;
+		/* margin added */
 	}
 	header.header .main a img {
 		width: 40%;
