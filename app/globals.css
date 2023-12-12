@@ -4701,3 +4701,8 @@ button.tooltip-button:active {
 .side-event-active-link{
 	color: #be1e97 !important;
 }
+@media screen and (max-width: 767px) {
+	div.t-events{
+		padding-bottom: 0px !important;
+	}
+}
