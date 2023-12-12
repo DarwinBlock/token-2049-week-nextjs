@@ -4713,15 +4713,15 @@ button.tooltip-button:active {
 	}
 
 	header .t-global {
-		padding-bottom: 6px !important;
-		margin-top: 6px;
+		padding-block: 16px !important;
+		margin: 0px !important;
 	}
 	header.header {
 		height: 107px;
 	}
 
 	div.main{
-		padding-top: 10px;
+		padding-top: 20px;
 	}
 }
 
@@ -4733,6 +4733,11 @@ button.tooltip-button:active {
 		height: 95px;
 	}
 	div.main{
-		padding-top: 10px;
+		padding-top: 12px;
+	}
+
+	header .t-global {
+		padding-block: 16px !important;
+		margin: 0px !important;
 	}
 }
