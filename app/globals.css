@@ -2357,7 +2357,7 @@ header.header .main .navbar-toggler {
 		max-width: initial !important;
 	}
 	header .t-global {
-		height: 24.4px;
+		/* height: 24.4px; */
 		justify-content: center;
 		align-items: center;
 		display: flex;
@@ -2365,7 +2365,7 @@ header.header .main .navbar-toggler {
 	/* header.header{height: 100px;} */
 	header .t-global div.container-lg a {
 		padding: 5px 0 0;
-		font-size: 10px;
+		font-size: 14px;
 		margin-left: /*10px*/ 0;
 		letter-spacing: 0;
 	}
@@ -3415,8 +3415,8 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 	}
 	header.header .main a img {
 		/*width: 200px;*/
-		width: /*200px*/ 157px;
-		height: 19px;
+		width: /*200px*/ 180px;
+		/* height: 19px; */
 		object-fit: unset;
 		padding-left: 0;
 	}
@@ -3532,10 +3532,11 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 		height: 580px;
 	}
 	header .t-global {
-		margin-bottom: 12px !important;
+		padding-bottom: 6px !important;
+		margin-top: 6px;
 	}
 	header.header {
-		height: 81px;
+		height: 107px;
 	}
 	footer .col-12,
 	footer .col-3 {
@@ -4703,8 +4704,35 @@ button.tooltip-button:active {
 .side-event-active-link{
 	color: #be1e97 !important;
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 767px) and (min-width: 401px) {
 	div.t-events{
 		padding-bottom: 0px !important;
+	}
+	.header-fix-bg{
+		height: 107px;
+	}
+
+	header .t-global {
+		padding-bottom: 6px !important;
+		margin-top: 6px;
+	}
+	header.header {
+		height: 107px;
+	}
+
+	div.main{
+		padding-top: 10px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.header-fix-bg{
+		height: 95px;
+	}
+	header.header {
+		height: 95px;
+	}
+	div.main{
+		padding-top: 10px;
 	}
 }
