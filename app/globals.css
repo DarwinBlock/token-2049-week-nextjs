@@ -4723,6 +4723,23 @@ button.tooltip-button:active {
 	div.main{
 		padding-top: 20px;
 	}
+
+	header.header .main a img{
+		width: 230px;
+		height: auto !important;
+	}
+
+	header.header .main .navbar-toggler.collapsed .navbar-toggler-icon img.burger-button{
+		height: auto;
+		width: 40px;
+		max-height: none;
+	}
+
+	header.header .main .navbar-toggler.collapsed .navbar-toggler-icon img.close-burger-btn{
+		height: auto;
+		width: 25px;
+		max-height: none;
+	}	
 }
 
 @media screen and (max-width: 400px) {
@@ -4740,4 +4757,21 @@ button.tooltip-button:active {
 		padding-block: 16px !important;
 		margin: 0px !important;
 	}
+
+	header.header .main a img{
+		width: 200px;
+		height: auto !important;
+	}
+
+	header.header .main .navbar-toggler.collapsed .navbar-toggler-icon img.burger-button{
+		height: auto;
+		width: 35px;
+		max-height: none;
+	}
+
+	header.header .main .navbar-toggler.collapsed .navbar-toggler-icon img.close-burger-btn{
+		height: auto;
+		width: 25px;
+		max-height: none;
+	}	
 }
