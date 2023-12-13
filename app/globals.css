@@ -4775,3 +4775,9 @@ button.tooltip-button:active {
 		max-height: none;
 	}	
 }
+
+@media screen and (max-width: 401px) {
+	div.t-events{
+		padding-bottom: 0px !important;
+	}
+}
