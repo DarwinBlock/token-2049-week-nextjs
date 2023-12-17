@@ -1,5 +1,6 @@
 import Modal from "@/components/ui/Modal";
 import Image from "next/image";
+import axios from "axios";
 
 const DeleteToolConfirmModal = ({ isOpen, setOpen, toolToDelete }) => {
 	const deleteToolHandler = async () => {
