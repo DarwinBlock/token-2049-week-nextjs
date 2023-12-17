@@ -60,7 +60,7 @@ const EditForm = ({defaultData}) => {
 	}
 
     for(let field in editFields){
-        if(field === 'verified' || field === 'featured_event'){
+        if(field === 'verified' || field === 'featured_event' || field === 'invite_only'){
             const defVal = editFields[field] === 1;
 
             constructedArray.push(

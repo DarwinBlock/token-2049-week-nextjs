@@ -11,6 +11,7 @@ const EventCard = ({
 	imgStr,
 	registrationLink,
 	isFeatured,
+	inviteOnly = false,
 }) => {
 	return (
 		<div className={isFeatured ? "p-1 featured-card-content-wrapper rounded-lg flex flex-col bg-[#410BB9]" : ""}>
@@ -51,6 +52,13 @@ const EventCard = ({
 						</div>
 					</div>
                     {
+						inviteOnly?
+						<div className="col-md-3 pointer-events-none">
+                            <a href="#">
+                                <button>Invite Only</button>
+                            </a>
+                        </div>
+						:(
                         (registrationLink && registrationLink.length > 0)?
                         <div className="col-md-3">
                             <a target="blank" href={registrationLink}>
@@ -62,7 +70,7 @@ const EventCard = ({
                             <a href="#">
                                 <button>Coming Soon</button>
                             </a>
-                        </div>
+                        </div>)
                     }
 				</div>
 			</div>
