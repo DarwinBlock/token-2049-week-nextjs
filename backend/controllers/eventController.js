@@ -3,7 +3,7 @@ import { formToDBMap } from "@/config/constants";
 
 export default async function getEvents(getAllEvents=false, eventId=null){
     try {
-        let query = `SELECT * FROM Events WHERE verified=1 ORDER BY featured_event DESC`;
+        let query = `SELECT * FROM Events WHERE verified=1 ORDER BY featured_event DESC, event_date ASC`;
         if(getAllEvents)
             query = `SELECT * FROM Events`;
         else if(eventId)

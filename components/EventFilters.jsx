@@ -62,6 +62,7 @@ const EventFilters = ({ selectedDateFilter }) => {
 						imgStr={item.thumbnail}
 						registrationLink={item.registration_link}
 						isFeatured={item.featured_event === 1}
+						inviteOnly={item.invite_only === 1}
 					/>
 				);
 			});
