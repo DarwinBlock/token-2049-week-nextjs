@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 export const metadata = {
 	title: "TOKEN2049 Week | 15-21 April 2024 | Dubai",
 	description:
-		"TOKEN2049 is the premier crypto event in Asia. Join us to explore cryptoassets and blockchain-based tokens as they reshape the global economy.",
+		"TOKEN2049 Week is the year's widest range of meetups, workshops, networking drinks and parties with TOKEN2049 being the flagship event of the week – creating unparalleled networking opportunities.",
 };
 
 export default function RootLayout({ children }) {
@@ -15,21 +15,21 @@ export default function RootLayout({ children }) {
 				<meta content="yes" name="apple-mobile-web-app-capable" />
 				<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
 				<meta name="author" content="TOKEN2049 Team" />
-				<meta property="og:title" content="TOKEN2049 Week" />
+				<meta property="og:title" content={metadata.title} />
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:image"
 					content="https://raw.githubusercontent.com/DarwinBlock/token2049-badges/main/public/token2049_banner.png?token=GHSAT0AAAAAACGWG6KQER67VZIJTWO22XYYZHQNV2A"
 				/>
-				<meta property="og:url" content="https://token2049.com" />
-				<meta property="og:site_name" content="TOKEN2049 Week" />
-				<meta property="og:description" content="TOKEN2049 Week" />
+				<meta property="og:url" content="https://week.token2049.com" />
+				<meta property="og:site_name" content={metadata.title} />
+				<meta property="og:description" content={metadata.description} />
 				<meta property="keywords" content="token2049" />
 
 				<meta name="twitter:card" content="summary_large_image" />
-				<meta name="twitter:url" content="https://token2049.com" />
-				<meta name="twitter:title" content="TOKEN2049 Week" />
-				<meta name="twitter:description" content="TOKEN2049 Week" />
+				<meta name="twitter:url" content="https://week.token2049.com" />
+				<meta name="twitter:title" content={metadata.title} />
+				<meta name="twitter:description" content={metadata.title} />
 				<meta
 					name="twitter:image"
 					content="https://raw.githubusercontent.com/DarwinBlock/token2049-badges/main/public/token2049_banner.png?token=GHSAT0AAAAAACGWG6KQER67VZIJTWO22XYYZHQNV2A"
