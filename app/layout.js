@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
 				<link rel="shortcut icon" href="./favicon.ico" />
 				<meta content="yes" name="apple-mobile-web-app-capable" />
 				<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
-				<meta name="author" content="TOKEN2049 Team" />
+				<meta name="author" content={metadata.description} />
 				<meta property="og:title" content={metadata.title} />
 				<meta property="og:type" content="website" />
 				<meta property="og:image" content="https://raw.githubusercontent.com/DarwinBlock/token-2049-week-nextjs/main/public/og.png" />
