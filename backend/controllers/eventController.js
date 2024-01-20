@@ -84,9 +84,9 @@ export async function updateEvent(data){
     }
 }
 
-export async function checkIfClashingFeature(eventDate){
+export async function checkIfClashingFeature(eventDate, eventId){
     try{
-        const query = "SELECT COUNT(*) AS eventCount FROM Events WHERE featured_event=1 AND event_date='"+eventDate+"' GROUP BY event_date;";
+        const query = "SELECT COUNT(*) AS eventCount FROM Events WHERE featured_event=1 AND event_date='"+eventDate+"' AND event_id!="+eventId+" GROUP BY event_date;";
         const res = await queryDB(query);
         return res.length > 0;
     }
