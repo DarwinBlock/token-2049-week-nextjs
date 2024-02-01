@@ -14,8 +14,8 @@ formToDBMap.set("Ticket Type", "event_type");
 formToDBMap.set("Thumbnail  ( 400x400 px )", "thumbnail");
 formToDBMap.set("Registration Link", "registration_link");
 formToDBMap.set("Event Date", "event_date");
-formToDBMap.set("Event Start Time", "start_time");
-formToDBMap.set("Event End Time", "end_time");
+formToDBMap.set("Event Start Time (24h format)", "start_time");
+formToDBMap.set("Event End Time (24h format)", "end_time");
 formToDBMap.set("Ticket Price Range", "price");
 formToDBMap.set("Venue Google Maps Link", "gmap_link");
 
