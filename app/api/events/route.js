@@ -51,12 +51,12 @@ export async function PUT(request) {
 	try {
 		const formDataJSON = await request.json();
 		// console.log("Yes data is come", formDataJSON.data);
-		if (formDataJSON.data["featured_event"] === 1) {
-			// Now check if an event exists already on the same date
-			const isClashing = await checkIfClashingFeature(formDataJSON.data["event_date"], formDataJSON.data["event_id"]);
-			// console.log(isClashing, " Bro might clasj");
-			if (isClashing) throw new Error("An event is already featured on this date");
-		}
+		// if (formDataJSON.data["featured_event"] === 1) {
+		// 	// Now check if an event exists already on the same date
+		// 	const isClashing = await checkIfClashingFeature(formDataJSON.data["event_date"], formDataJSON.data["event_id"]);
+		// 	// console.log(isClashing, " Bro might clasj");
+		// 	if (isClashing) throw new Error("An event is already featured on this date");
+		// }
 		// console.log("Hey buddy");
 		await updateEvent(formDataJSON.data);
 		return NextResponse.json({ message: "Event Edited Successfully" }, { status: 200 });

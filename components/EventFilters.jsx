@@ -33,9 +33,10 @@ const EventFilters = ({ selectedDateFilter }) => {
 			})
 			.map((item) => {
 				const date = new Date(item.event_date);
-				const dayOfMonth = date.getDate();
+				const dayOfMonth = new Date(date.toLocaleString("en-US", { timeZone: "Asia/Dubai" })).getDate();
 				const options = { weekday: "short" };
-				const abbreviatedDayName = new Intl.DateTimeFormat("en-US", options).format(date);
+				const abbreviatedDayName = new Intl.DateTimeFormat("en-US", { ...options, timeZone: "Asia/Dubai" }).format(date);
+
 				function getFormattedTime(timeString) {
 					const timeParts = timeString.split(":");
 					const hours = parseInt(timeParts[0], 10);
