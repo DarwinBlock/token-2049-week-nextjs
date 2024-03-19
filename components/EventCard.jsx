@@ -20,7 +20,7 @@ const EventCard = ({
 					<p className="font-semibold m-0 font-primary text-white uppercase">Featured Event</p>
 					<Tooltip
 						labelText={<i className="text-white text-lg fa-solid fa-circle-info"></i>}
-						message={"This is a TOKEN2049 Week featured event. Email us at community@token2049.com to upgrade your side event to featured event."}
+						message={"This is a TOKEN2049 Week featured event. Email us at sponsors@token2049.com to upgrade your side event to featured event."}
 					/>
 				</div>
 			}
