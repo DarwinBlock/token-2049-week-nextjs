@@ -1040,6 +1040,7 @@ body div.webui-popover .arrow {
 }
 .ban-ner .inner-img {
 	height: 820px;
+	max-height: 80vh;
 	display: flex;
 	width: 100%;
 	background-image: url("/TOKEN2049-Week-Header.png");
