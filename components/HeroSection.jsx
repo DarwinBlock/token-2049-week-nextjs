@@ -1,9 +1,9 @@
 const HeroSection = () => {
 	return (
 		<div className="ban-ner">
-			<div className="header-fix-bg"></div>
+			{/* <div className="header-fix-bg"></div> */}
 			<div className="inner-img">
-				<div className="container">
+				<div className="container flex items-center">
 					<div className="inner-text">
 						<img src={"/TOKEN2049-Week-Logo.png"} className="desktop" alt="Banner" />
 						<img src={"/TOKEN2049-Week-Logo-Stacked.png"} className="mobile" />
