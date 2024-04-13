@@ -12,8 +12,8 @@ const HeroSection = () => {
 						</p>
 						<div className="own-event">
 							<p className="Drinks">
-								The year&apos;s widest range of meetups, workshops, networking drinks and parties - creating unparalleled networking
-								opportunities.
+								Experience the year&apos;s widest range of meetups, workshops, networking events, hackathons, and parties, providing
+								unparalleled networking opportunities.
 							</p>
 
 							<p className="updts">
