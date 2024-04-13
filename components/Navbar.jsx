@@ -66,7 +66,7 @@ const Navbar = () => {
 					<div className="menu_dv">
 						<div className="header-left">
 							<a href="https://www.dubai.token2049.com">
-								{/* <img src='/Token-logo.png' alt="Token2049" /> */}
+								<img src="/Token-logo.png" alt="Token2049" class="nav-mobile-img" />
 								<img src="./token2049-dubai.svg" width="160px" class="nav-img" />
 							</a>
 						</div>
@@ -87,7 +87,7 @@ const Navbar = () => {
 										<img className="burger-button" src="/menu-bar.png" />
 									</i>
 								) : (
-									<img className="close-burger-btn w-[20px] h-[20px]" width={20} src="/close-icon.svg" />
+									<img className="close-burger-btn w-[30px] h-[30px]" width={30} src="/close-icon.svg" />
 								)}
 							</span>
 						</button>

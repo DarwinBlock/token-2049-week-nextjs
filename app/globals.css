@@ -3775,6 +3775,21 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 		padding: 0 5px;
 		margin: 0; /*overflow: hidden;*/
 	}
+	header.header {
+		background-color: #fff !important;
+	}
+	header.header,
+	header .main {
+		height: 70px !important;
+	}
+	.nav-mobile-img {
+		display: block;
+		width: 180px !important;
+		margin-top: 5px;
+	}
+	.nav-img {
+		display: none;
+	}
 	header.header .main ul li a {
 		font-size: 14px;
 		font-weight: 500;
@@ -4118,6 +4133,16 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 	}
 }
 
+@media screen and (min-width: 414px) {
+	.nav-mobile-img {
+		display: none;
+	}
+
+	.nav-img {
+		display: block;
+	}
+}
+
 @media screen and (min-width: 320px) and (max-width: 620px) {
 	header.header ul.navbar-nav {
 		width: 100% !important;
@@ -4396,7 +4421,7 @@ header.header .header-right ul li.age-nda div.agenda_new1 span::before {
 	background: #b83df5;
 	color: #fff;
 	border-color: #b83df5;
-	border-radius: 12px;
+	border-radius: 12px !important;
 }
 
 .own-event button.hst-own {
@@ -4773,7 +4798,7 @@ button.tooltip-button:active {
 	}
 
 	header.header .main .navbar-toggler.collapsed .navbar-toggler-icon img.burger-button {
-		margin-top: 20px;
+		margin-top: 5px;
 		height: auto;
 		width: 35px;
 		max-height: none;
