@@ -140,7 +140,7 @@ const Navbar = () => {
 										EXHIBIT
 									</a>
 									<a href="https://www.dubai.token2049.com/tickets" className="btn bttn nav-link">
-										GET TICKETS
+										TICKETS
 									</a>
 								</div>
 							</ul>
