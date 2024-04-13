@@ -54,13 +54,13 @@ const Navbar = () => {
 
 	return (
 		<header className="header navbar-expand-lg" tw="exclude">
-			{/* <div className="t-global">
+			<div className="t-global">
 				<div className="container-lg">
 					<a href="http://www.token2049.com/">
 						<span className="arrow">← </span>TOKEN2049 GLOBAL
 					</a>
 				</div>
-			</div> */}
+			</div>
 			<div className="main">
 				<div className="container-lg">
 					<div className="menu_dv">
