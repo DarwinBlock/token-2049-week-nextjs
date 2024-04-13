@@ -44,6 +44,10 @@
 		url("/fonts/OpenSauceTwoSemiBold.woff") format("woff"), url("/fonts/OpenSauceTwoSemiBold.ttf") format("truetype"),
 		url("/fonts/OpenSauceTwoSemiBold.svg#OpenSauceTwoSemiBold") format("svg");
 }
+@font-face {
+	font-family: "OpenSauceTwoRegular";
+	src: url("/fonts/OpenSauceSans/OpenSauceSans-Regular.ttf");
+}
 
 @font-face {
 	font-family: "OpenSauceTwoBold";
@@ -537,8 +541,8 @@ header.header ul li a {
 	text-decoration: none;
 	color: initial;
 	font-size: 13px;
-	font-family: "OpenSauceTwoSemiBold", sans-serif; /* font-weight: 700;*/
-	font-weight: 600;
+	font-family: "OpenSauceTwoRegular", sans-serif; /* font-weight: 700;*/
+	font-weight: 400;
 	color: #fff;
 	padding: 2px 0px 0px 0px;
 }
@@ -1464,7 +1468,7 @@ div#carouselExample {
 	font-family: "OpenSauceTwoSemiBold", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	opacity: 1;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 15px;
 	transition: all 0.3s;
 	white-space: nowrap;
@@ -1480,7 +1484,7 @@ div#carouselExample {
 		font-family: "OpenSauceTwoSemiBold", sans-serif;
 		-webkit-font-smoothing: antialiased;
 		opacity: 1;
-		font-weight: 500;
+		font-weight: 400;
 		line-height: 15px;
 		width: 90px;
 		height: 33px;
@@ -1504,7 +1508,7 @@ div#carouselExample {
 	font-family: "OpenSauceTwoSemiBold", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	opacity: 1;
-	font-weight: 500;
+	font-weight: 400;
 	margin-left: 15px;
 }
 @-moz-document url-prefix() {
@@ -1518,7 +1522,7 @@ div#carouselExample {
 		font-family: "OpenSauceTwoSemiBold", sans-serif;
 		-webkit-font-smoothing: antialiased;
 		opacity: 1;
-		font-weight: 500;
+		font-weight: 400;
 		margin-left: 15px;
 	}
 }
