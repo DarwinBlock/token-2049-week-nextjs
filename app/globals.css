@@ -4062,7 +4062,7 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 	}
 	.own-event button.side-evnt {
 		margin-bottom: 20px;
-		margin-top: 32px;
+		margin-top: 10px;
 	}
 	div.t-events .c-hack .e-divs {
 		padding: 0px 20px;
@@ -4172,7 +4172,7 @@ header .container-lg , footer .container-lg ,.t-events .container{max-width: 720
 		z-index: 0;
 	}
 	.vector-arrow {
-		padding-top: 80px !important;
+		padding-top: 20px !important;
 		display: block !important;
 	}
 }
