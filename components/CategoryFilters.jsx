@@ -24,7 +24,7 @@ const CategoryFilter = ({ selectedCategory, setSelectedCategory }) => {
                 category='gaming'
             /> */}
 			<CategoryFilterButton buttonLabel={"Networking"} isActive={selectedCategory === "networking"} onClick={setSelectedCategory} category="networking" />
-			<CategoryFilterButton buttonLabel={"Sport"} isActive={selectedCategory === "sports"} onClick={setSelectedCategory} category="sports" />
+			<CategoryFilterButton buttonLabel={"Sport"} isActive={selectedCategory === "sport"} onClick={setSelectedCategory} category="sport" />
 			<CategoryFilterButton buttonLabel={"Other"} isActive={selectedCategory === "other"} onClick={setSelectedCategory} category="other" />
 		</>
 	);
