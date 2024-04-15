@@ -1,4 +1,4 @@
-# Token2049 Week Events Listing App
+## Token2049 Week Events Listing App
 
 Welcome to the Token2049 Week Events Listing App! This web application provides a user-friendly interface to explore and view all events scheduled for Token2049 Week, taking place from 15th to 21st April 2024.
 
